@@ -1,11 +1,95 @@
-import styled from "styled-components";
+import { styled, createGlobalStyle } from "styled-components";
+import Container from "./components/Container";
 
-export const GlobalContainer = styled.div`
-  max-width: 1248px;
-  width: 100%;
-  height: 100vh;
-  padding: 0 5px 10px 5px;
+export const GlobalStyles = createGlobalStyle`
+	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+
+	html, body {
+		height: 100%
+	}
+
+	body {
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+    min-height: 100vh;
+
+    color-scheme: light dark;
+    color: rgba(255, 255, 255, 0.87);
+    background-color: #242424;
+
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+	}
+
+	main {
+		flex: 1 0 auto;
+	}
+
+  a {
+    font-weight: 500;
+    color: #646cff;
+    text-decoration: inherit;
+  }
+  
+  a:hover {
+    color: #535bf2;
+  }
+
+	h1 {
+		font-size: 3.2em;
+    line-height: 1.1;
+	}
+	
+  button {
+    border-radius: 8px;
+    border: 1px solid transparent;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    background-color: #1a1a1a;
+    cursor: pointer;
+    transition: border-color 0.25s;
+  }
+
+  button:hover {
+    border-color: #646cff;
+  }
+
+  button:focus,
+  button:focus-visible {
+    outline: 4px auto -webkit-focus-ring-color;
+  }
+
+  @media (prefers-color-scheme: light) {
+    :root {
+      color: #213547;
+      background-color: #ffffff;
+    }
+    a:hover {
+      color: #747bff;
+    }
+    button {
+      background-color: #f9f9f9;
+    }
+  }
 `;
+
+export const SContainer = styled.div`
+  background: linear-gradient(to right, #00bfff, #00008b);
+  margin: 0 auto;
+  width: 100%;
+  min-height: 100vh
+  padding: 10px 20px;
+`;
+
 export const TopContainer = styled.div`
   display: flex;
   flex-direction: column;

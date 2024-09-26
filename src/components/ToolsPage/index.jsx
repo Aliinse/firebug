@@ -1,119 +1,12 @@
 import React, { useState, useEffect, useContext } from "react";
 
-import styled from "styled-components";
 import axios from "axios";
 import Modal from "react-modal";
-import { AppContext } from "../context/AppContext";
-import Container from "./Container";
+import { AppContext } from "../../context/AppContext";
+import * as StyledTools from './styled'
 
-// Стилизация модального окна
+
 Modal.setAppElement("#root");
-
-const ToolsContainer = styled(Container)`
-  padding: 20px;
-  font-family: "Arial, sans-serif";
-`;
-
-const Controls = styled.div`
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 20px;
-  flex-wrap: wrap;
-`;
-
-const SearchInput = styled.input`
-  width: 70%;
-  padding: 5px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  min-width: 200px;
-`;
-
-const AddButton = styled.button`
-  padding: 5px 10px;
-  background-color: #00bfff;
-  border: none;
-  color: white;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-top: 10px;
-
-  &:hover {
-    background-color: #009acd;
-  }
-`;
-
-const CardGrid = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-`;
-
-const Card = styled.div`
-  flex: 1 1 calc(25% - 10px);
-  min-width: 200px;
-  max-width: 23%;
-  padding: 20px;
-  background-color: #f0f0f0;
-  cursor: pointer;
-  border-radius: 5px;
-
-  &:hover {
-    background-color: #e0e0e0;
-  }
-`;
-
-const ModalContent = styled.div`
-  background-color: white;
-  padding: 20px;
-  border-radius: 5px;
-  width: 90%;
-  max-width: 400px;
-`;
-
-const Label = styled.label`
-  display: block;
-  margin-bottom: 10px;
-`;
-
-const Input = styled.input`
-  width: 100%;
-  padding: 5px;
-  margin-top: 5px;
-  margin-bottom: 15px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-`;
-
-const TextArea = styled.textarea`
-  width: 100%;
-  height: 100px;
-  padding: 5px;
-  margin-top: 5px;
-  margin-bottom: 15px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-family: "Courier New", Courier, monospace;
-  background-color: #f6f8fa;
-`;
-
-const SaveButton = styled.button`
-  padding: 5px 10px;
-  background-color: #28a745;
-  border: none;
-  color: white;
-  border-radius: 5px;
-  cursor: pointer;
-
-  &:hover {
-    background-color: #218838;
-  }
-`;
-
-const ErrorMessage = styled.p`
-  color: red;
-  font-size: 14px;
-`;
 
 function ToolsPage() {
   const { pageObjects, setPageObjects } = useContext(AppContext);
@@ -126,10 +19,8 @@ function ToolsPage() {
   });
   const [errors, setErrors] = useState("");
 
-  // Получение данных с сервера при загрузке компонента
   useEffect(() => {
     fetchPageObjects();
-    // eslint-disable-next-line
   }, []);
 
   const fetchPageObjects = async () => {
@@ -176,14 +67,14 @@ function ToolsPage() {
     Modal.setAppElement("#root");
     Modal.open({
       content: (
-        <ModalContent>
+        <StyledTools.ModalContent>
           <h2>{pageObject.name}</h2>
           <p>
             <strong>Сокр. название:</strong> {pageObject.shortname}
           </p>
           <pre>{pageObject.code}</pre>
-          <SaveButton onClick={() => Modal.close()}>Закрыть</SaveButton>
-        </ModalContent>
+          <StyledTools.SaveButton onClick={() => Modal.close()}>Закрыть</StyledTools.SaveButton>
+        </StyledTools.ModalContent>
       ),
       overlayClassName: "modal-overlay",
       className: "modal-content",
@@ -195,31 +86,31 @@ function ToolsPage() {
   );
 
   return (
-    <div>
-      <ToolsContainer>
-        <Controls>
-          <SearchInput
+    <>
+      <StyledTools.ToolsContainer>
+        <StyledTools.Controls>
+          <StyledTools.SearchInput
             type="text"
             placeholder="Поиск по pageObject"
             value={searchTerm}
             onChange={e => setSearchTerm(e.target.value)}
           />
-          <AddButton onClick={handleAddPageObject}>
+          <StyledTools.AddButton onClick={handleAddPageObject}>
             Добавить pageObject
-          </AddButton>
-        </Controls>
-        {errors && <ErrorMessage>{errors}</ErrorMessage>}
-        <CardGrid>
+          </StyledTools.AddButton>
+        </StyledTools.Controls>
+        {errors && <StyledTools.ErrorMessage>{errors}</StyledTools.ErrorMessage>}
+        <StyledTools.CardGrid>
           {filteredPageObjects.map(obj => (
-            <Card key={obj.id} onClick={() => handleCardClick(obj)}>
+            <StyledTools.Card key={obj.id} onClick={() => handleCardClick(obj)}>
               <h3>{obj.name}</h3>
               <p>
                 <strong>Сокр. название:</strong> {obj.shortname}
               </p>
-            </Card>
+            </StyledTools.Card>
           ))}
-        </CardGrid>
-      </ToolsContainer>
+        </StyledTools.CardGrid>
+      </StyledTools.ToolsContainer>
 
       {/* Модальное окно для добавления pageObject */}
       <Modal
@@ -245,42 +136,42 @@ function ToolsPage() {
           },
         }}
       >
-        <ModalContent>
+        <StyledTools.ModalContent>
           <h2>Добавить pageObject</h2>
-          {errors && <ErrorMessage>{errors}</ErrorMessage>}
-          <Label>
+          {errors && <StyledTools.ErrorMessage>{errors}</StyledTools.ErrorMessage>}
+          <StyledTools.Label>
             Название:
-            <Input
+            <StyledTools.Input
               type="text"
               value={formValues.name}
               onChange={e =>
                 setFormValues({ ...formValues, name: e.target.value })
               }
             />
-          </Label>
-          <Label>
+          </StyledTools.Label>
+          <StyledTools.Label>
             Сокращённое название:
-            <Input
+            <StyledTools.Input
               type="text"
               value={formValues.shortName}
               onChange={e =>
                 setFormValues({ ...formValues, shortName: e.target.value })
               }
             />
-          </Label>
-          <Label>
+          </StyledTools.Label>
+          <StyledTools.Label>
             Код:
-            <TextArea
+            <StyledTools.TextArea
               value={formValues.code}
               onChange={e =>
                 setFormValues({ ...formValues, code: e.target.value })
               }
             />
-          </Label>
-          <SaveButton onClick={handleSave}>Сохранить</SaveButton>
-        </ModalContent>
+          </StyledTools.Label>
+          <StyledTools.SaveButton onClick={handleSave}>Сохранить</StyledTools.SaveButton>
+        </StyledTools.ModalContent>
       </Modal>
-    </div>
+    </>
   );
 }
 

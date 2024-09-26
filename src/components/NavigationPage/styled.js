@@ -4,7 +4,7 @@ export const NavigationButtons = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 10px; // Пространство между кнопками
+  gap: 10px;
 `;
 
 export const NavButton = styled.button`
