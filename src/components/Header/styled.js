@@ -1,14 +1,12 @@
 import styled from "styled-components";
-import Container from "../Container";
+import {SContainer} from "../Container/styled";
 
 export const SHeader = styled.header`
-  background: linear-gradient(to right, #00008b, #00bfff, #00008b);
-  box-shadow: 0px 1px 16px #fff;
   color: white;
   width: 100%;
 `;
 
-export const HeaderContainer = styled(Container)`
+export const HeaderContainer = styled(SContainer)`
   display: flex;
   justify-content: space-between;
 `;

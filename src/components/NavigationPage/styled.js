@@ -7,14 +7,35 @@ export const NavigationButtons = styled.div`
   gap: 10px;
 `;
 
-export const NavButton = styled.button`
-  background: none;
+export const SSpan = styled.span`
+  display: none;
+`;
 
-  color: white;
-  padding: 10px;
+export const CommonButtonStyle = styled.button`
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  background: none;
+  appearance: none;
+  border: none;
   cursor: pointer;
-  border-radius: 5px;
+  transition: 0.4s ease-in-out;
+
+  &:hover > span {
+    transition: 1s ease-in-out;
+    display: block;
+  }
+`;
+
+export const NavButtonRight = styled(CommonButtonStyle)`
   &:hover {
-    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateX(30%) scale(2);
+  }
+`;
+
+export const NavButtonLeft = styled(CommonButtonStyle)`
+  &:hover {
+    transform: translateX(-30%) scale(2);
   }
 `;

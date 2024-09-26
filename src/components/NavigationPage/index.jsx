@@ -1,7 +1,15 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { NavigationButtons, NavButton } from "./styled";
+import {
+  NavigationButtons,
+  NavButtonRight,
+  NavButtonLeft,
+  SSpan,
+} from "./styled";
+import ArrowLeftImage from "../../assets/arrow-left.svg?react";
+import ArrowRightImage from "../../assets/arrow-right.svg?react";
 
+import Container from "../Container";
 
 function NavigationPage() {
   const navigate = useNavigate();
@@ -19,10 +27,18 @@ function NavigationPage() {
   };
 
   return (
-    <NavigationButtons>
-      <NavButton onClick={swipeLeft}>На страницу Tools</NavButton>
-      <NavButton onClick={swipeRight}>Ручное тестирование</NavButton>
-    </NavigationButtons>
+    <Container>
+      <NavigationButtons>
+        <NavButtonLeft onClick={swipeLeft}>
+          <ArrowLeftImage />
+          <SSpan> На страницу Tools </SSpan>
+        </NavButtonLeft>
+        <NavButtonRight onClick={swipeRight}>
+          <SSpan>Ручное тестирование</SSpan>
+          <ArrowRightImage />
+        </NavButtonRight>
+      </NavigationButtons>
+    </Container>
   );
 }
 
