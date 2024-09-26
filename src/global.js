@@ -1,5 +1,4 @@
 import { styled, createGlobalStyle } from "styled-components";
-import Container from "./components/Container";
 
 export const GlobalStyles = createGlobalStyle`
 	* {
@@ -15,6 +14,7 @@ export const GlobalStyles = createGlobalStyle`
 	body {
     font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
     line-height: 1.5;
+    font-size: 18px;
     font-weight: 400;
     min-height: 100vh;
 

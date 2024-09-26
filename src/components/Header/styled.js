@@ -4,6 +4,7 @@ import {SContainer} from "../Container/styled";
 export const SHeader = styled.header`
   color: white;
   width: 100%;
+  background: linear-gradient(to right, #00bfff, #00008b);
 `;
 
 export const HeaderContainer = styled(SContainer)`
