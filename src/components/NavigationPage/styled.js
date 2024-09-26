@@ -8,7 +8,8 @@ export const NavigationButtons = styled.div`
 `;
 
 export const SSpan = styled.span`
-  display: none;
+  opacity: 0;
+  transition: 0.4s ease-in-out;
 `;
 
 export const CommonButtonStyle = styled.button`
@@ -23,8 +24,7 @@ export const CommonButtonStyle = styled.button`
   transition: 0.4s ease-in-out;
 
   &:hover > span {
-    transition: 1s ease-in-out;
-    display: block;
+    opacity: 1;
   }
 `;
 

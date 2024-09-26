@@ -19,6 +19,8 @@ export const AccountButton = styled.button`
   cursor: pointer;
   padding: 10px 20px;
   border-radius: 5px;
+  transition: 0.3s ease-in-out;
+
   &:hover {
     opacity: 0.8;
   }
