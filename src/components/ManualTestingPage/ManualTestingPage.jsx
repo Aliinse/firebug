@@ -1,14 +1,33 @@
 import React from "react";
 import Container from "../Container";
-import BlockIsland from "../BlockIsland/BlockIsland";
+import {TestIslnd} from "./styled";
+import { QAContent } from "./styled";
 
-function ManualTestingPage() {
+/*function ManualTestingPage() {
   return (
     <Container>
-      <BlockIsland>
+      <TestIslnd>
         <h1>Manual Testing</h1>
-      </BlockIsland>
+      </TestIslnd>
     </Container>
+  );
+}
+  */
+function ManualTestingPage() {
+  return (
+    <QAContent>
+      <TestIslnd>
+        <div>
+          <h2>Мануальное тестирование: важный этап разработки ПО</h2>
+          <br></br>
+Мануальное тестирование — это ключевой процесс в разработке программного обеспечения, который включает ручную проверку функциональности приложений без использования автоматизированных инструментов.
+
+Тестировщики, проводя мануальные тесты, анализируют интерфейс, выполняют сценарии и выявляют дефекты. Этот подход позволяет глубже понять пользовательский опыт и выявить ошибки, которые могут остаться незамеченными при автоматизации.
+
+Мануальное тестирование особенно полезно на начальных этапах разработки, когда изменения происходят быстро. Важно обеспечить качество продукта, соответствующее ожиданиям пользователей.
+</div>
+      </TestIslnd>
+    </QAContent>
   );
 }
 
