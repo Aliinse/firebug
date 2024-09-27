@@ -1,7 +1,7 @@
 import React from "react";
 import Container from "../Container";
-import {TestIslnd} from "./styled";
-import { QAContent } from "./styled";
+import {QAIsland} from "./styled";
+import { QAContent, QAStyleContainer } from "./styled";
 
 /*function ManualTestingPage() {
   return (
@@ -15,8 +15,9 @@ import { QAContent } from "./styled";
   */
 function ManualTestingPage() {
   return (
+    <QAStyleContainer>
     <QAContent>
-      <TestIslnd>
+      <QAIsland>
         <div>
           <h2>Мануальное тестирование: важный этап разработки ПО</h2>
           <br></br>
@@ -26,8 +27,9 @@ function ManualTestingPage() {
 
 Мануальное тестирование особенно полезно на начальных этапах разработки, когда изменения происходят быстро. Важно обеспечить качество продукта, соответствующее ожиданиям пользователей.
 </div>
-      </TestIslnd>
+      </QAIsland>
     </QAContent>
+    </QAStyleContainer>
   );
 }
 

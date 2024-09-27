@@ -1,0 +1,5 @@
+function QAStyleContainer({children}) {
+  return<QAIslandContainer>{children}</QAIslandContainer>;
+}
+
+export default QAStyleContainer; //здесь я хотел сделать контейнер для manualpage
